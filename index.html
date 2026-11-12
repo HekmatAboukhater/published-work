@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Published work by Hekmat Matthew Aboukhater, including reporting, policy research, translations, podcasts and independent projects.">
+  <meta name="theme-color" content="#f8f5ee">
+  <title>Published work | Hekmat Matthew Aboukhater</title>
+  <style>
+:root {
+  color-scheme: light;
+  --paper: #f8f5ee;
+  --ink: #231e19;
+  --muted: #5c534a;
+  --accent: #843a2b;
+  --line: #d8cdbd;
+  --field: #fffdf8;
+  font-family: "DM Sans", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 1.5rem; }
+body { margin: 0; }
+a { color: inherit; text-underline-offset: .2em; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+[hidden] { display: none !important; }
+.wrap { width: min(72rem, calc(100% - 3.5rem)); margin-inline: auto; }
+.skip {
+  position: absolute;
+  z-index: 2;
+  background: var(--field);
+  padding: .7rem 1rem;
+  transform: translateY(-200%);
+}
+.skip:focus { transform: none; }
+.masthead { border-bottom: 1px solid var(--line); }
+.masthead .wrap, footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .85rem 1.75rem;
+  flex-wrap: wrap;
+}
+.masthead .wrap { min-height: 4.1rem; }
+.name { font-size: .9rem; font-weight: 700; text-decoration: none; }
+.masthead nav { display: flex; flex-wrap: wrap; gap: 1.4rem; font-size: .85rem; }
+.masthead nav a { text-decoration: none; }
+.masthead nav a:hover { text-decoration: underline; }
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.46fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: end;
+  padding-block: clamp(3rem, 7vw, 6.25rem) clamp(2.3rem, 5vw, 4.2rem);
+  border-bottom: 2px solid var(--accent);
+}
+.hero h1, h2, .work-title, .year h2 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+}
+.hero h1 {
+  font-size: clamp(4.1rem, 11vw, 9.1rem);
+  line-height: .86;
+  letter-spacing: -.073em;
+  margin: 0;
+}
+.hero h1 span { display: block; color: var(--accent); }
+.intro { margin: 0; max-width: 29rem; font-size: clamp(1.04rem, 1.65vw, 1.27rem); line-height: 1.64; }
+.archive {
+  display: grid;
+  grid-template-columns: 10.25rem minmax(0, 1fr);
+  gap: clamp(1.5rem, 5.5vw, 4.6rem);
+  padding-top: 2rem;
+}
+.year-nav { align-self: start; position: sticky; top: 1.5rem; }
+.year-nav h2 { margin: .2rem 0 1rem; font: 700 .85rem "DM Sans", Arial, sans-serif; }
+.year-nav ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.year-nav a {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  padding: .68rem .1rem;
+  border-bottom: 1px solid var(--line);
+  font-size: .94rem;
+}
+.year-nav span { color: var(--muted); font-size: .81rem; }
+.filter-form { display: grid; grid-template-columns: minmax(0, 1fr) 13.5rem; gap: .85rem 1rem; }
+.filter-form label { display: block; margin-bottom: .46rem; font-size: .82rem; font-weight: 700; }
+input, select, button { font: inherit; }
+input, select {
+  width: 100%;
+  padding: .7rem .78rem;
+  min-height: 2.85rem;
+  border: 1px solid #b8aa96;
+  border-radius: .18rem;
+  background: var(--field);
+  color: var(--ink);
+}
+input::placeholder { color: var(--muted); }
+.filter-status {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  min-height: 1.6rem;
+  font-size: .83rem;
+  color: var(--muted);
+}
+.filter-status button {
+  background: transparent;
+  border: 0;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+  padding: .18rem 0 .18rem .25rem;
+  cursor: pointer;
+}
+.year { margin-top: 2.75rem; }
+.year:first-child { margin-top: 1.25rem; }
+.year h2 {
+  margin: 0;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--ink);
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+.work { padding: 1.3rem 0 1.35rem; border-bottom: 1px solid var(--line); }
+.meta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: .55rem;
+  row-gap: .18rem;
+  margin: 0 0 .42rem;
+  font-size: .8rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.meta .outlet { color: var(--accent); font-weight: 700; }
+.work-title {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.35vw, 1.85rem);
+  line-height: 1.16;
+  letter-spacing: -.023em;
+  overflow-wrap: anywhere;
+}
+.work-title a { text-decoration: none; }
+.work-title a:hover { text-decoration: underline; }
+.arrow { color: var(--accent); font: .61em Arial, sans-serif; vertical-align: .19em; white-space: nowrap; }
+.description { max-width: 52rem; margin: .55rem 0 0; font-size: 1rem; line-height: 1.61; }
+.editions { margin-top: .7rem; font-size: .83rem; line-height: 1.52; }
+.editions summary { cursor: pointer; color: var(--accent); width: fit-content; }
+.editions ul { margin: .4rem 0 0; padding-left: 1.22rem; }
+.editions li + li { margin-top: .3rem; }
+.editions li span { color: var(--muted); }
+#no-results { margin: 2rem 0; color: var(--muted); }
+#research {
+  margin-top: 4.5rem;
+  border-top: 2px solid var(--accent);
+  padding-block: 2rem 3.3rem;
+}
+#research h2 { font-size: clamp(2.35rem, 6vw, 4rem); letter-spacing: -.05em; margin: 0; }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
+.project-grid .work { padding-block: 1.25rem; }
+.chapter-list li + li { margin-top: .65rem; }
+.chapter-list p { margin: .1rem 0 0; color: var(--muted); }
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 1.35rem 1.65rem; align-items: start; }
+footer p { margin: 0; max-width: 46rem; font-size: .84rem; color: var(--muted); line-height: 1.65; }
+footer a { font-size: .84rem; }
+@media (max-width: 700px) {
+  .wrap { width: calc(100% - 2.25rem); }
+  .masthead .wrap { padding-block: .85rem; }
+  .masthead nav { gap: 1rem; }
+  .hero, .archive { grid-template-columns: 1fr; }
+  .hero { gap: 1.45rem; }
+  .hero h1 { font-size: clamp(4.15rem, 13vw, 6rem); }
+  .archive { gap: 1.2rem; padding-top: 1.3rem; }
+  .year-nav { position: static; }
+  .year-nav h2 { margin-bottom: .6rem; }
+  .year-nav ul { display: flex; flex-wrap: wrap; gap: .2rem .65rem; border: 0; }
+  .year-nav a { border: 1px solid var(--line); border-radius: .18rem; padding: .35rem .55rem; }
+  .year-nav span { display: none; }
+  .project-grid { grid-template-columns: 1fr; }
+  #research { margin-top: 3rem; }
+}
+@media (max-width: 430px) {
+  .filter-form { grid-template-columns: 1fr; gap: .7rem; }
+  .masthead nav { font-size: .8rem; }
+}
+@media print {
+  .wrap { width: 100%; }
+  .masthead nav, .year-nav, .filter-form, footer { display: none; }
+  .archive, .hero, .project-grid { display: block; }
+  .hero { padding: 0 0 1rem; }
+  .hero h1 { font-size: 3.6rem; }
+  .hero h1 span { display: inline; margin-left: .17em; }
+  .intro { margin-top: .75rem; }
+  .work { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<a href="#archive" class="skip">Skip to the archive</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="name" href="#top">Hekmat Matthew Aboukhater</a>
+    <nav aria-label="Page navigation">
+      <a href="#archive">Archive</a>
+      <a href="#research">Research on GitHub</a>
+      <a href="https://github.com/WhatTheHekmat">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="top">
+  <div class="hero">
+    <h1>Published <span>work</span></h1>
+    <p class="intro">I grew up in Aleppo and a lot of what I write comes back to how decisions made in Washington are felt somewhere else, so I’ve put my reporting, policy research, translations and projects here with a note on what I was trying to figure out in each piece.</p>
+  </div>
+  <div id="archive" class="archive">
+    <nav class="year-nav" aria-label="Browse by year">
+      <h2>Browse by year</h2>
+      <ul>
+      <li><a href="#year-2026">2026<span aria-hidden="true">8</span></a></li>
+<li><a href="#year-2025">2025<span aria-hidden="true">5</span></a></li>
+<li><a href="#year-2024">2024<span aria-hidden="true">10</span></a></li>
+<li><a href="#year-2023">2023<span aria-hidden="true">8</span></a></li>
+<li><a href="#year-2022">2022<span aria-hidden="true">5</span></a></li>
+      </ul>
+    </nav>
+    <div class="archive-list">
+      <form id="filters" class="filter-form" aria-label="Filter the archive" hidden>
+        <div>
+          <label for="search">Search the archive</label>
+          <input id="search" type="search" placeholder="Try Syria, sanctions, or an outlet">
+        </div>
+        <div>
+          <label for="kind">Type of work</label>
+          <select id="kind">
+            <option value="">All work</option>
+            <option value="writing">Articles and essays</option>
+            <option value="research">Research and policy papers</option>
+            <option value="credits">Translations and credits</option>
+            <option value="podcast">Podcasts I hosted</option>
+          </select>
+        </div>
+        <div class="filter-status">
+          <output id="results" for="search kind" aria-live="polite"></output>
+          <button id="clear" type="button" hidden>Clear filters</button>
+        </div>
+      </form>
+      <p id="no-results" hidden>Nothing matched that search.</p>
+      <div>
+      <section class="year" aria-labelledby="year-2026"><h2 id="year-2026">2026</h2>
+<article class="work" id="modern-warfare-4" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Responsible Statecraft</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2026-10-28">Oct 28, 2026</time>
+    <span aria-hidden="true">·</span>
+    <span>Criticism</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://responsiblestatecraft.org/call-of-duty-4/">Modern Warfare 4 Injects American empire right into the veins <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I went back to Call of Duty’s World War II roots and looked at how the series got from there to Modern Warfare 4, where the idea that the US military has to be everywhere is built into the world you play in.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://www.msn.com/en-us/news/other/call-of-duty-4-injecting-american-empire-right-into-the-veins/ar-AA2gdpAy">Call of Duty 4: Injecting American empire right into the veins</a> <span>· MSN</span></li>
+</ul></details>
+</article>
+<article class="work" id="yemen-translation-2026" data-kind="credits">
+  <p class="meta">
+    <span class="outlet">The Grayzone · Max Blumenthal</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2026-10-23">Oct 23, 2026</time>
+    <span aria-hidden="true">·</span>
+    <span>Translation and research</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://zeno.fm/podcast/max-blumenthal/episodes/we-are-fighting-for-a-just-peace-top-yemeni-official-on-ansarulahs-new-war-with-saudi-arabia/">‘We are fighting for a just peace’: top Yemeni official on Ansarulah’s new war with Saudi Arabia <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I helped research and translate Max Blumenthal’s interview with Mohammad al-Bukhaiti about the breakdown of the ceasefire with Saudi Arabia and what Ansarulah said it wanted from the war.</p>
+  
+</article>
+<article class="work" id="sectarian-fault-lines" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Foreign Policy</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2026-10-08">Oct 8, 2026</time>
+    <span aria-hidden="true">·</span>
+    <span>Analysis</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://foreignpolicy.com/2026/10/08/iraq-trump-sectarian-war/">Trump Is Reopening the Middle East’s Deadliest Sectarian Fault Lines <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I argued that Washington’s push to disarm Shiite groups in Iraq and elsewhere skips over the fears that keep them armed, and that policy looks very different when you start from what those communities remember about sectarian violence.</p>
+  
+</article>
+<article class="work" id="ron-paul-conference" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Responsible Statecraft</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2026-09-07">Sep 7, 2026</time>
+    <span aria-hidden="true">·</span>
+    <span>Dispatch</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://responsiblestatecraft.org/massie-speech-iran-war/">Massie, Kent join ex-officials lighting up Ron Paul ‘revolution’ <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I reported from the Ron Paul Institute conference after Thomas Massie lost his primary, and what stayed with me was how many people from very different political camps agreed on opposing the Iran war while still having very different ideas about what to do next.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://www.msn.com/en-us/news/other/former-us-officials-light-up-ron-paul-anti-war-revolution/ar-AA2bHm37">Former US officials light up Ron Paul anti-war revolution</a> <span>· MSN</span></li>
+<li><a href="https://tippinsights.com/massie-kent-join-ex-officials-lighting-up-ron-paul-revolution/">Massie, Kent Join Ex-Officials Lighting Up Ron Paul ‘Revolution’</a> <span>· TIPP Insights</span></li>
+<li><a href="https://groupegaullistesceaux.fr/2026/09/07/massie-et-kent-rejoignent-danciens-responsables-politiques-pour-dynamiser-la-revolution-de-ron-paul/">Massie et Kent rejoignent d’anciens responsables politiques pour dynamiser la « révolution » de Ron Paul</a> <span>· Groupe Gaulliste Sceaux</span></li>
+</ul></details>
+</article>
+<article class="work" id="akp-washington" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Responsible Statecraft</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2026-08-14">Aug 14, 2026</time>
+    <span aria-hidden="true">·</span>
+    <span>Reporting</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://responsiblestatecraft.org/turkey-lobbying-washington/">Erdogan&#x27;s party pours millions into new DC pied-a-terre <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I followed the foreign-agent filings behind the AKP’s purchase of the old French Embassy in Washington, and used the spending and meeting records to see who Turkey’s ruling party was trying to reach as its rivalry with Israel played out over Syria.</p>
+  
+</article>
+<article class="work" id="oil-reserves" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Responsible Statecraft</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2026-07-28">Jul 28, 2026</time>
+    <span aria-hidden="true">·</span>
+    <span>Analysis</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://responsiblestatecraft.org/trump-oil-reserves/">Trump is playing chicken with America&#x27;s oil reserves <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I went through the federal oil inventory data to see what was left in the Strategic Petroleum Reserve after withdrawals under Biden and Trump, and asked how much room Washington was leaving itself for another supply shock while it was at war with Iran.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://www.telepolis.de/article/Trumps-gefaehrliches-Spiel-mit-Amerikas-Oelreserven-11381631.html">Trumps gefährliches Spiel mit Amerikas Ölreserven</a> <span>· Telepolis</span></li>
+<li><a href="https://www.lacasademitia.es/articulo/politica/trump-jugando-reservas-petroleras-estados-unidos-hekmat-aboukhater/20260808081235194699.html">Trump está jugando con las reservas petroleras de Estados Unidos</a> <span>· La Casa de mi Tía</span></li>
+<li><a href="https://weltinsel.com/articles/trump-pokert-mit-den-strategischen-olreserven-der-usa">Trump pokert mit den strategischen Ölreserven der USA</a> <span>· Weltinsel</span></li>
+</ul></details>
+</article>
+<article class="work" id="rebalancing-the-books" data-kind="research">
+  <p class="meta">
+    <span class="outlet">John Quincy Adams Society</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2026-07-08">Jul 8, 2026</time>
+    <span aria-hidden="true">·</span>
+    <span>Policy paper</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://jqas.org/rebalancing-the-books-a-realist-strategy-for-managing-iran-and-the-budding-sunni-regional-order/">Rebalancing the Books: A Realist Strategy for Managing Iran and the Budding Sunni Regional Order <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I started this paper with a question about the regional balance after Assad fell, and argued that the US should give diplomacy with Iran another chance through inspections, limits on enrichment and phased sanctions relief.</p>
+  <details class="editions"><summary>Full paper</summary><ul>
+<li><a href="https://jqas.org/wp-content/uploads/2026/07/Aboukhater-Analysis-1.pdf">Full Marcellus policy paper (PDF)</a> <span>· John Quincy Adams Society</span></li>
+</ul></details>
+</article>
+<article class="work" id="yjia-spring-2026" data-kind="credits">
+  <p class="meta">
+    <span class="outlet">Yale Journal of International Affairs</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2026">Spring 2026</time>
+    <span aria-hidden="true">·</span>
+    <span>Copy editing credit</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://www.yalejournal.org/publications/spring2026-eic">Masthead &amp; Editor&#x27;s Note: Spring 2026 (Volume 21, Issue 2) <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I worked on this issue as a copy editor, and the published masthead lists the staff who put the spring issue together.</p>
+  
+</article></section>
+<section class="year" aria-labelledby="year-2025"><h2 id="year-2025">2025</h2>
+<article class="work" id="syria-one-year-after-assad" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">The National Interest</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2025-12-08">Dec 8, 2025</time>
+    <span aria-hidden="true">·</span>
+    <span>Analysis</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://nationalinterest.org/blog/middle-east-watch/syria-one-year-after-assad">Syria, One Year After Assad <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I took stock of Syria a year after Assad fell, with an eye on what the transition had meant for the people the new government had to persuade it could protect, including Alawites.</p>
+  
+</article>
+<article class="work" id="yjia-fall-2025" data-kind="credits">
+  <p class="meta">
+    <span class="outlet">Yale Journal of International Affairs</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2025">Fall 2025</time>
+    <span aria-hidden="true">·</span>
+    <span>Copy editing credit</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://www.yalejournal.org/publications/masthead-amp-editors-note-2025-dpwl7fall">Masthead &amp; Editor&#x27;s Note: Fall 2025 (Volume 21, Issue 1) <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I was on the copy desk for the fall issue, and the masthead records my role alongside the rest of the journal’s editorial staff.</p>
+  
+</article>
+<article class="work" id="poynter-seminar" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Yale Daily News</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2025-09-15">Sep 15, 2025</time>
+    <span aria-hidden="true">·</span>
+    <span>Column</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://yaledailynews.com/blog/2025/09/15/aboukhater-on-khaled-abu-toamehs-vapid-poynter-fellowship-seminar/">ABOUKHATER: On Khaled Abu Toameh’s vapid Poynter Fellowship seminar <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I wrote about Khaled Abu Toameh’s talk at Yale and asked whether the discussion lived up to the Poynter Fellowship’s own promise to give students a serious look at more than one perspective.</p>
+  
+</article>
+<article class="work" id="yemen-translation-2025" data-kind="credits">
+  <p class="meta">
+    <span class="outlet">The Grayzone</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2025-04-21">Apr 21, 2025</time>
+    <span aria-hidden="true">·</span>
+    <span>Translation</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://thegrayzone.com/2025/04/21/houthi-spokesman-confronting-us-israel/">VIDEO: ‘A battle between right and wrong’: Houthi spokesman on confronting the US and Israel <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I translated Max Blumenthal’s interview with Ansar Allah spokesman Mohammed al-Bukhaiti, where he laid out his movement’s position on the confrontation with the United States and Israel.</p>
+  
+</article>
+<article class="work" id="reform-or-rupture-unsc" data-kind="research">
+  <p class="meta">
+    <span class="outlet">Caderno de Produções do Y20 · Government of Brazil</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2025-04">April 2025</time>
+    <span aria-hidden="true">·</span>
+    <span>Survey research · PDF</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://www.gov.br/secretariageral/pt-br/juventude/publicacoes/caderno-do-concurso-de-producoes-do-grupo-de-engajamento-do-g20-2013-youth-20-y20/caderno-de-artigos/20250711-caderno-de-producoes-do-y20-miolo.pdf">Reform or Rupture: G20 Youth Delegates’ Views on Reshaping the UNSC <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I surveyed 16 of the 20 delegates on the 2024 Y20 global governance track, and paired their ratings of the Security Council with their written answers to see where they agreed on reform and where they differed on who should have a seat or a veto.</p>
+  
+</article></section>
+<section class="year" aria-labelledby="year-2024"><h2 id="year-2024">2024</h2>
+<article class="work" id="sanctions-industrial-complex" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Mises Wire</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2024-12-12">Dec 12, 2024</time>
+    <span aria-hidden="true">·</span>
+    <span>Commentary</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://mises.org/mises-wire/second-trump-term-and-sanctions-industrial-complex">The Second Trump Term and the “Sanctions Industrial Complex” <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I wanted to know how much room an incoming president had to change sanctions policy after decades of accumulation, and looked at how compliance costs, vague expiration rules and the agencies that administer sanctions help keep them in place.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://mises.org/podcasts/audio-mises-wire/second-trump-term-and-sanctions-industrial-complex">The Second Trump Term and the “Sanctions Industrial Complex”</a> <span>· Mises Wire Audio</span></li>
+<li><a href="https://www.eurasiareview.com/13122024-the-second-trump-term-and-the-sanctions-industrial-complex-oped/">The Second Trump Term And The ‘Sanctions Industrial Complex’ – OpEd</a> <span>· Eurasia Review</span></li>
+</ul></details>
+</article>
+<article class="work" id="y20-passblue" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">PassBlue</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2024-09-10">Sep 10, 2024</time>
+    <span aria-hidden="true">·</span>
+    <span>Dispatch</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://passblue.com/2024/09/10/before-g20-summit-in-november-youth-tell-leaders-exactly-what-they-want/">Before G20 Summit in November, Youth Tell Leaders Exactly What They Want <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I wrote this after representing the US on the global governance track at the Y20 in Brazil, and went through what we actually agreed to put in the communiqué on issues like Security Council reform and representation in international institutions.</p>
+  
+</article>
+<article class="work" id="nuclear-weapons-lobby" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">TomDispatch</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2024-08-08">Aug 8, 2024</time>
+    <span aria-hidden="true">·</span>
+    <span>Co-authored analysis</span>
+    <span aria-hidden="true">·</span><span>With William D. Hartung</span>
+  </p>
+  <h3 class="work-title"><a href="https://tomdispatch.com/world-ending-maneuvers/">World-Ending Maneuvers? Inside the Nuclear-Weapons Lobby Today <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">William Hartung and I followed the money behind the Sentinel missile program, looking at campaign contributions, contractors’ lobbying and the jobs argument that kept coming up even as the cost of the program climbed.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://responsiblestatecraft.org/nuclear-weapon-lobbying/">Meet the army of lobbyists behind $2 trillion nuclear weapons boost</a> <span>· Responsible Statecraft</span></li>
+<li><a href="https://jacobin.com/2024/08/nuclear-weapons-budget-contractors-icbms">The US Keeps Pouring Money Into Nuclear Weapons</a> <span>· Jacobin</span></li>
+<li><a href="https://fpif.org/cashing-in-on-nukes/">Cashing in on Nukes</a> <span>· Foreign Policy In Focus</span></li>
+<li><a href="https://www.salon.com/2024/08/11/why-is-the-us-spending-2-trillion-on-more-weapons-that-could-end-the-world_partner/">Why is the U.S. spending $2 trillion on more weapons that could end the world?</a> <span>· Salon</span></li>
+<li><a href="https://www.commondreams.org/opinion/lobbying-nuclear-weapons">World-Ending Investments? Inside the $2 Trillion Nuclear Weapon Upgrade Scheme</a> <span>· Common Dreams</span></li>
+<li><a href="https://original.antiwar.com/william-d-hartung/2024/08/08/cashing-in-on-nukes/">Cashing in on Nukes</a> <span>· Antiwar.com</span></li>
+<li><a href="https://countercurrents.org/2024/08/world-ending-maneuvers-inside-the-nuclear-weapons-lobby-today/">World-Ending Maneuvers? Inside the Nuclear-Weapons Lobby Today</a> <span>· Countercurrents</span></li>
+<li><a href="https://www.laprogressive.com/war-and-peace/cashing-in-on-nukes">Cashing in on Nukes</a> <span>· LA Progressive</span></li>
+<li><a href="https://www.truthdig.com/articles/masters-of-nuclear-war/">Masters of (Nuclear) War</a> <span>· Truthdig</span></li>
+<li><a href="https://progressivehub.net/the-icbm-lobby-is-back-in-full-force-in-congress/">The ICBM Lobby Is Back In Full Force In Congress</a> <span>· Progressive Hub</span></li>
+<li><a href="https://www.transcend.org/tms/2024/08/world-ending-maneuvers/">World-Ending Maneuvers?</a> <span>· Transcend Media Service</span></li>
+</ul></details>
+</article>
+<article class="work" id="quincy-icbm-brief" data-kind="credits">
+  <p class="meta">
+    <span class="outlet">Quincy Institute for Responsible Statecraft</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2024-08-07">Aug 7, 2024</time>
+    <span aria-hidden="true">·</span>
+    <span>Research credit</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://quincyinst.org/research/inside-the-icbm-lobby-special-interests-or-the-public-interest/">Inside the ICBM Lobby: Special Interests or the Public Interest? <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I helped with the research on campaign contributions and lobbying expenditures for William Hartung’s Quincy brief on the companies and lawmakers backing the Sentinel missile program.</p>
+  
+</article>
+<article class="work" id="turkey-assad-outreach" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Responsible Statecraft</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2024-07-29">Jul 29, 2024</time>
+    <span aria-hidden="true">·</span>
+    <span>Co-authored analysis</span>
+    <span aria-hidden="true">·</span><span>With Joshua Landis</span>
+  </p>
+  <h3 class="work-title"><a href="https://responsiblestatecraft.org/turkey-syria-war/">Erdogan’s outreach to Assad may signal final curtain on Syria War <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">Joshua Landis and I wrote about Erdoğan’s overtures to Assad before the regime fell, and asked what that rapprochement and Syria’s return to the Arab League meant for the case for keeping US troops in Syria.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://casopisargument.cz/58609">Turecko na cestě normalizace vztahů se Sýrií</a> <span>· !Argument</span></li>
+</ul></details>
+</article>
+<article class="work" id="hollywood-militainment" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Responsible Statecraft</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2024-07-04">Jul 4, 2024</time>
+    <span aria-hidden="true">·</span>
+    <span>Reporting</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://responsiblestatecraft.org/theaters-of-war/">That&#x27;s militainment! Big Hollywood succumbs to the Pentagon Borg <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I used Theaters of War and the records behind it to look at what filmmakers get from the Pentagon, and what the Pentagon gets in return when its cooperation can depend on how the military appears on screen.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://www.telepolis.de/article/Militainment-Wie-das-Pentagon-seine-Macht-ueber-Hollywood-ausgedehnt-hat-9792539.html">Militainment: Wie das Pentagon seine Macht über Hollywood ausgedehnt hat</a> <span>· Telepolis</span></li>
+</ul></details>
+</article>
+<article class="work" id="capitol-hill-syria-lobby" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">The Grayzone</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2024-03-20">Mar 20, 2024</time>
+    <span aria-hidden="true">·</span>
+    <span>Reporting</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://thegrayzone.com/2024/03/20/anti-syria-lobbys-capitol-hill-sanctions/">Inside the anti-Syria lobby’s Capitol Hill push for more starvation sanctions <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I followed a Syria lobbying campaign to Capitol Hill and reported on what its organizers asked congressional offices to do about sanctions, aid and US policy toward the armed groups still operating in Syria.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://libya360.wordpress.com/2024/03/21/inside-the-anti-syria-lobbys-capitol-hill-push-for-more-starvation-sanctions/">Inside the Anti-Syria Lobby’s Capitol Hill Push for More Starvation Sanctions</a> <span>· Internationalist 360°</span></li>
+</ul></details>
+</article>
+<article class="work" id="michigan-uncommitted" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Al Mayadeen English</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2024-03-01">Mar 1, 2024</time>
+    <span aria-hidden="true">·</span>
+    <span>Commentary</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://english.almayadeen.net/articles/opinion/us-election-2024--michigan-rattles-the-biden-administration">US Election 2024: Michigan rattles the Biden administration <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I looked at Michigan’s uncommitted vote in the Democratic primary and what it was telling the Biden campaign about how its policy on Gaza was landing with voters in a swing state.</p>
+  
+</article>
+<article class="work" id="hr-3202" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">MintPress News</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2024-02-22">Feb 22, 2024</time>
+    <span aria-hidden="true">·</span>
+    <span>Analysis</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://www.mintpressnews.com/caesar-act-h-r-3202-israel-lobby-persistent-role-syria-sanctions/286880/">Deconstructing H.R. 3202: The Israel Lobby’s Persistent Role in Sanctioning Syria <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I read the House bill line by line, including the provision that would extend the Caesar Act through 2032, and followed the lobbying behind it to ask what the bill would mean for Syrians trying to rebuild.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://popularresistance.org/deconstructing-h-r-3202-the-israel-lobbys-persistent-role-in-sanctioning-syria/">Deconstructing H.R. 3202: Israel’s Persistent Role In Sanctioning Syria</a> <span>· Popular Resistance</span></li>
+<li><a href="https://orinocotribune.com/deconstructing-us-house-resolution-3202-israel-lobbys-persistent-role-in-sanctioning-syria/">Deconstructing US House Resolution 3202: Israel Lobby’s Persistent Role in Sanctioning Syria</a> <span>· Orinoco Tribune</span></li>
+</ul></details>
+</article>
+<article class="work" id="yemen-translation-2024" data-kind="credits">
+  <p class="meta">
+    <span class="outlet">The Grayzone</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2024-01-25">Jan 25, 2024</time>
+    <span aria-hidden="true">·</span>
+    <span>Translation</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://thegrayzone.com/2024/01/25/interview-houthi-spokesman/">“Our goal is to stop the genocide”: The Grayzone interviews Houthi spokesman <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I translated this interview with Mohammed al-Bukhaiti in which Max Blumenthal asked him about the Red Sea shipping campaign and how the movement linked it to the war in Gaza.</p>
+  
+</article></section>
+<section class="year" aria-labelledby="year-2023"><h2 id="year-2023">2023</h2>
+<article class="work" id="october-war" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Al Mayadeen English</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2023-10-06">Oct 6, 2023</time>
+    <span aria-hidden="true">·</span>
+    <span>Commentary</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://english.almayadeen.net/articles/opinion/50-years-on:-time-to-be-honest-about-the-legacy-of-the-octob">50 years on: Time to be honest about the legacy of the October War <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">On the fiftieth anniversary of the 1973 war I revisited what Egypt and Syria set out to do, and why the legacy looks different when you separate the early military gains from the political decisions that followed.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://syria360.wordpress.com/2023/10/06/time-to-be-honest-about-the-legacy-of-the-october-war/">Time to Be Honest About the Legacy of the October War</a> <span>· Internationalist 360°</span></li>
+</ul></details>
+</article>
+<article class="work" id="adl-musk" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Al Mayadeen English</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2023-09-12">Sep 12, 2023</time>
+    <span aria-hidden="true">·</span>
+    <span>Analysis</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://english.almayadeen.net/articles/analysis/what-is-the-adl-elon-musks-latest-target-in-his-war-against">What is the ADL, Elon Musk’s Latest Target in his War Against Censorship? <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I used Elon Musk’s public dispute with the Anti-Defamation League to look at the organization’s role in debates about what social media platforms remove and who gets a say in those decisions.</p>
+  
+</article>
+<article class="work" id="resistance-media-platforms" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Al Mayadeen English</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2023-09-05">Sep 5, 2023</time>
+    <span aria-hidden="true">·</span>
+    <span>Reporting</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://alpha-en-front.almayadeen.net/articles/features/developing:-a-bad-month-for-resistance-media-just-got-much-w">Developing: A bad month for Resistance media just got much worse <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I put three cases next to one another, MintPress losing its TikTok account, The Grayzone’s fundraiser being frozen and The Cradle’s Facebook page going down, to look at what happens when an outlet depends on a platform for its audience or its funding.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://thealtworld.com/thealtworld/developing-a-bad-month-for-resistance-media-just-got-much-worse">Developing: A bad month for Resistance media just got much worse</a> <span>· The Alt World</span></li>
+</ul></details>
+</article>
+<article class="work" id="golda" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">Al Mayadeen English</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2023-08-29">Aug 29, 2023</time>
+    <span aria-hidden="true">·</span>
+    <span>Film criticism</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://english.almayadeen.net/articles/features/golda:-an-intentionally-shallow-film-for-a-shallow-audience">Golda: An intentionally shallow film for a shallow audience <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I reviewed Golda and asked how much of the 1973 war a viewer can understand when the film tells the story from inside Golda Meir’s war room and gives so little time to what was happening on the other side.</p>
+  
+</article>
+<article class="work" id="syria-sanctions-workshop" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">The Grayzone</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2023-08-21">Aug 21, 2023</time>
+    <span aria-hidden="true">·</span>
+    <span>Reporting</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://thegrayzone.com/2023/08/21/anti-syria-lobby-caliphate-starvation-sanctions/">I crashed an anti-Syria lobby meeting where they pushed for a new Caliphate and more starvation sanctions <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I joined a Syrian American Council workshop and reported on what organizers wanted participants to ask for in Washington, including a longer sanctions timetable after the earthquake relief license expired.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://scheerpost.com/2023/08/21/i-crashed-an-anti-syria-lobby-meeting-where-they-pushed-for-a-new-caliphate-and-starvation-sanctions/">I Crashed an Anti-Syria Lobby Meeting Where They Pushed For a New Caliphate and Starvation Sanctions</a> <span>· ScheerPost</span></li>
+<li><a href="https://orinocotribune.com/crashed-an-anti-syria-lobby-meeting-where-they-pushed-for-a-new-caliphate-and-more-starvation-sanctions/">Crashed an Anti-Syria Lobby Meeting Where They Pushed for a New Caliphate and More Starvation Sanctions</a> <span>· Orinoco Tribune</span></li>
+<li><a href="https://popularresistance.org/i-crashed-an-anti-syria-lobby-meeting/">I Crashed An Anti-Syria Lobby Meeting</a> <span>· Popular Resistance</span></li>
+</ul></details>
+</article>
+<article class="work" id="ronnie-barkan" data-kind="podcast">
+  <p class="meta">
+    <span class="outlet">What the Hekmat?</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2023-05-24">May 24, 2023</time>
+    <span aria-hidden="true">·</span>
+    <span>Podcast · Host</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://rss.com/podcasts/hekmat/966176/">Conversations With Dissidents #1 Fighting Israel from within: Conversation with ISRAELI DISSIDENT, Ronnie Barkan <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I spoke with Israeli activist Ronnie Barkan about his path to dissent, his participation in a Palestine Action protest in Britain and how he thought about the legal consequences of that choice.</p>
+  
+</article>
+<article class="work" id="syria-economic-siege" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">The Grayzone</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2023-05-16">May 16, 2023</time>
+    <span aria-hidden="true">·</span>
+    <span>Reporting and photography</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://thegrayzone.com/2023/05/16/syrians-survive-americas-economic-siege/">Immiserated, humiliated, yet resilient: how Syrians survive America’s economic siege <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I went back to Syria and reported from Homs, Latakia, Tartous and Aleppo, using things people were actually doing to get by, from carrying stacks of cash to finding a few hours of power, to explain what the economic crisis looked like in daily life.</p>
+  <details class="editions"><summary>Other editions</summary><ul>
+<li><a href="https://syria360.wordpress.com/2023/05/17/how-syrians-survive-americas-economic-siege/">How Syrians Survive America’s Economic Siege</a> <span>· Syria 360°</span></li>
+</ul></details>
+</article>
+<article class="work" id="france-putin-nukes" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">EDJ Médias</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2023-02-03">Feb 3, 2023</time>
+    <span aria-hidden="true">·</span>
+    <span>Commentary</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://www.edjnews.fr/france-should-fear-putins-new-empire-but-not-his-nukes">France should fear Putin’s new empire but not his nukes <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I looked at the French debate over arming Ukraine and argued that Paris could take the Russian invasion seriously while weighing Moscow’s nuclear threats against the risks of escalation.</p>
+  
+</article></section>
+<section class="year" aria-labelledby="year-2022"><h2 id="year-2022">2022</h2>
+<article class="work" id="all-quiet-western-front" data-kind="writing">
+  <p class="meta">
+    <span class="outlet">EDJ Médias</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2022-11-11">Nov 11, 2022</time>
+    <span aria-hidden="true">·</span>
+    <span>Film criticism · French</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://www.edjnews.fr/a-louest-rien-de-nouveau-comment-le-nouveau-film-de-netflix-nous-rappelle-les-lecons-tirees-de-larmistice" lang="fr">« À l’Ouest, rien de nouveau » : comment le nouveau film de Netflix nous rappelle les leçons tirées de l’armistice <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I wrote this in French after watching All Quiet on the Western Front, and used the film’s treatment of the hours before the armistice to ask what gets lost when leaders reduce the cost of war to a number.</p>
+  
+</article>
+<article class="work" id="zack-hunt" data-kind="podcast">
+  <p class="meta">
+    <span class="outlet">What the Hekmat?</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2022-08-25">Aug 25, 2022</time>
+    <span aria-hidden="true">·</span>
+    <span>Podcast · Host</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://podcasts.apple.com/us/podcast/wth-with-zack-hunt-on-christian-evangelical-end-times/id1607224952?i=1000577342697">WTH with Zack Hunt on Christian Evangelical End Times Theology and how it Influences American Foreign Policy Regarding Israel/Palestine. <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I asked Zack Hunt how a particular reading of biblical prophecy took hold in American evangelical churches and what it can tell us about their politics around Israel and Palestine.</p>
+  
+</article>
+<article class="work" id="amy-nelson" data-kind="podcast">
+  <p class="meta">
+    <span class="outlet">What the Hekmat?</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2022-02-15">Feb 15, 2022</time>
+    <span aria-hidden="true">·</span>
+    <span>Podcast · Host</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://podcasts.apple.com/us/podcast/what-the-hekmat-with-amy-nelson-on-the-great/id1607224952?i=1000551172180">What the Hekmat with Amy Nelson on the Great Resignation, the Value of an MBA, and building VFA with Andrew Yang <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I talked to Amy Nelson about building Venture for America with Andrew Yang, what an MBA can do for someone starting out, and what people were looking for when they left their jobs during the Great Resignation.</p>
+  
+</article>
+<article class="work" id="tahar-sioud" data-kind="podcast">
+  <p class="meta">
+    <span class="outlet">What the Hekmat?</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2022-02-04">Feb 4, 2022</time>
+    <span aria-hidden="true">·</span>
+    <span>Podcast · Host · French</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://podcasts.apple.com/us/podcast/francais-what-the-hekmat-avec-tahar-sioud-le-plus/id1607224952?i=1000550088474">[FRANCAIS] What the Hekmat avec Tahar Sioud le plus grand diplomat Arab <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I interviewed the Tunisian diplomat Tahar Sioud in French about a career that took him from the Gulf to Europe, and about the Arab and European leaders he met along the way.</p>
+  
+</article>
+<article class="work" id="zaid-jilani" data-kind="podcast">
+  <p class="meta">
+    <span class="outlet">What the Hekmat?</span>
+    <span aria-hidden="true">·</span>
+    <time datetime="2022-01-25">Jan 25, 2022</time>
+    <span aria-hidden="true">·</span>
+    <span>Podcast · Host</span>
+    
+  </p>
+  <h3 class="work-title"><a href="https://podcasts.apple.com/us/podcast/what-the-hekmat-with-zaid-jilani-on-dont-look-up/id1607224952?i=1000549125254">What the Hekmat with Zaid Jilani on Don&#x27;t Look Up <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I opened the show with Zaid Jilani and a conversation about Don’t Look Up, what the satire got right about media and politics, and why audiences had such different reactions to it.</p>
+  
+</article></section>
+      </div>
+    </div>
+  </div>
+  <section id="research" aria-labelledby="research-title">
+    <h2 id="research-title">Research on GitHub</h2>
+    <div class="project-grid">
+      
+<article class="work">
+  <p class="meta"><span class="outlet">R</span></p>
+  <h3 class="work-title"><a href="https://github.com/WhatTheHekmat/syria-is-starting-to-glow-once-more">Syria is starting to glow once more <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I started with what I remember about going days without electricity in Aleppo and used satellite data to compare how nighttime brightness changed there, in Homs and in Damascus after the political transition.</p>
+  
+</article>
+<article class="work">
+  <p class="meta"><span class="outlet">Python</span></p>
+  <h3 class="work-title"><a href="https://github.com/WhatTheHekmat/arabic-statement-coding">Arabic Statement Coding <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I built a coding and audit workflow around official Arabic statements from Syria, where a promise to investigate and an acknowledgment that state-affiliated forces were involved get their own codes.</p>
+  
+</article>
+<article class="work">
+  <p class="meta"><span class="outlet">R · Replication</span></p>
+  <h3 class="work-title"><a href="https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/tree/main/iraq-soccer-replication">Can playing on the same team change what people do off the field? <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I reproduced Salma Mousa’s estimates from mixed Christian–Muslim soccer teams in Iraq, then dropped one team at a time to see how much the result on later training depended on any one team.</p>
+  
+</article>
+<article class="work">
+  <p class="meta"><span class="outlet">R · Coursework</span></p>
+  <h3 class="work-title"><a href="https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/">AQRD Quantitative Portfolio <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I put together four exercises in applied research design, on economic shocks and civil conflict, war and inheritance taxation, forest conservation in Mexico, and predicting workplace injury risk.</p>
+  
+</article>
+<article class="work">
+  <p class="meta"><span class="outlet">R · Five essays</span></p>
+  <h3 class="work-title"><a href="https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/tree/main/mastering-metrics">Mastering ’Metrics in R <span class="arrow" aria-hidden="true">↗</span></a></h3>
+  <p class="description">I worked through the first five chapters using data on jobs, housing, cigarettes, cash assistance and organ donation, and wrote down the assumptions each design asks us to make.</p>
+  <details class="editions"><summary>Five chapter write-ups</summary><ul class="chapter-list">
+<li><a href="https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/blob/main/mastering-metrics/01-randomized-trials.md">Did job training raise later earnings?</a><p>I used a job-training experiment to compare earnings by assignment and show how randomization changes what we can infer.</p></li>
+<li><a href="https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/blob/main/mastering-metrics/02-regression.md">How much more did homes with central air sell for?</a><p>I compared home prices with and without air conditioning and looked at how the estimate changed after adjusting for other features of the house.</p></li>
+<li><a href="https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/blob/main/mastering-metrics/03-instrumental-variables.md">What happens to sales when cigarettes cost more?</a><p>I used variation in cigarette taxes to ask how cigarette sales respond to prices and showed how to read the first stage.</p></li>
+<li><a href="https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/blob/main/mastering-metrics/04-regression-discontinuity.md">Does qualifying for cash assistance change political support?</a><p>I compared households around the cash-assistance eligibility cutoff and checked how the estimate moved as I widened the window.</p></li>
+<li><a href="https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/blob/main/mastering-metrics/05-differences-in-differences.md">Did changing a DMV question change donor sign-ups?</a><p>I used organ-donor registration to show what we can learn from changes over time and how much the answer depends on the comparison group.</p></li>
+</ul></details>
+</article>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <p>I’ve linked to publisher pages where I could trace them and listed reprints under the same entry. A few older pieces use the titles and dates in my public clips index.</p>
+    <a href="https://muckrack.com/hekmat-aboukhater">Muck Rack clips ↗</a>
+  </div>
+</footer>
+<script>
+
+const filters = document.querySelector("#filters");
+const search = document.querySelector("#search");
+const kind = document.querySelector("#kind");
+const results = document.querySelector("#results");
+const empty = document.querySelector("#no-results");
+const reset = document.querySelector("#clear");
+const sections = Array.from(document.querySelectorAll(".year"));
+const yearLinks = Array.from(document.querySelectorAll(".year-nav li"));
+
+function normalize(value) {
+  return value.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+}
+
+const records = sections.flatMap((section) =>
+  Array.from(section.querySelectorAll(".work"), (element) => ({
+    element,
+    text: normalize(element.textContent),
+    kind: element.dataset.kind
+  }))
+);
+
+function filterWorks() {
+  const terms = normalize(search.value).trim().split(/\s+/).filter(Boolean);
+  let visible = 0;
+
+  for (const work of records) {
+    const matchesKind = kind.value === "" || kind.value === work.kind;
+    work.element.hidden = !(matchesKind && terms.every((term) => work.text.includes(term)));
+    if (!work.element.hidden) visible += 1;
+  }
+
+  for (const [index, section] of sections.entries()) {
+    const count = section.querySelectorAll(".work:not([hidden])").length;
+    section.hidden = count === 0;
+    yearLinks[index].hidden = count === 0;
+    yearLinks[index].querySelector("span").textContent = count;
+  }
+
+  results.textContent = visible === records.length
+    ? `${records.length} entries`
+    : `${visible} of ${records.length} entries`;
+  reset.hidden = terms.length === 0 && kind.value === "";
+  empty.hidden = visible !== 0;
+}
+
+filters.addEventListener("submit", (event) => event.preventDefault());
+search.addEventListener("input", filterWorks);
+kind.addEventListener("change", filterWorks);
+reset.addEventListener("click", () => {
+  filters.reset();
+  filterWorks();
+  search.focus();
+});
+filters.hidden = false;
+filterWorks();
+</script>
+</body>
+</html>
