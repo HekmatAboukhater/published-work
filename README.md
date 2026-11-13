@@ -1,10 +1,10 @@
 # Published work
 
-[Browse the HTML archive](https://whatthehekmat.github.io/published-work/)
+[Browse the HTML archive](https://hekmataboukhater.github.io/published-work/)
 
 I grew up in Aleppo and a lot of what I write comes back to how decisions made in Washington are felt somewhere else, so I’ve put my reporting, policy research, translations and projects here with a note on what I was trying to figure out in each piece.
 
-[2026](#2026) · [2025](#2025) · [2024](#2024) · [2023](#2023) · [2022](#2022) · [Research on GitHub](#research-on-github) · [GitHub profile](https://github.com/WhatTheHekmat)
+[2026](#2026) · [2025](#2025) · [2024](#2024) · [2023](#2023) · [2022](#2022) · [Research on GitHub](#research-on-github) · [GitHub profile](https://github.com/HekmatAboukhater)
 
 ## 2026
 
@@ -308,31 +308,31 @@ I opened the show with Zaid Jilani and a conversation about Don’t Look Up, wha
 
 ## Research on GitHub
 
-### [Syria is starting to glow once more](https://github.com/WhatTheHekmat/syria-is-starting-to-glow-once-more)
+### [Syria is starting to glow once more](https://github.com/HekmatAboukhater/syria-is-starting-to-glow-once-more)
 
 R
 
 I started with what I remember about going days without electricity in Aleppo and used satellite data to compare how nighttime brightness changed there, in Homs and in Damascus after the political transition.
 
-### [Arabic Statement Coding](https://github.com/WhatTheHekmat/arabic-statement-coding)
+### [Arabic Statement Coding](https://github.com/HekmatAboukhater/arabic-statement-coding)
 
 Python
 
 I built a coding and audit workflow around official Arabic statements from Syria, where a promise to investigate and an acknowledgment that state-affiliated forces were involved get their own codes.
 
-### [Can playing on the same team change what people do off the field?](https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/tree/main/iraq-soccer-replication)
+### [Can playing on the same team change what people do off the field?](https://github.com/HekmatAboukhater/aqrd-quantitative-portfolio/tree/main/iraq-soccer-replication)
 
 R · Replication
 
 I reproduced Salma Mousa’s estimates from mixed Christian–Muslim soccer teams in Iraq, then dropped one team at a time to see how much the result on later training depended on any one team.
 
-### [AQRD Quantitative Portfolio](https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/)
+### [AQRD Quantitative Portfolio](https://github.com/HekmatAboukhater/aqrd-quantitative-portfolio/)
 
 R · Coursework
 
 I put together four exercises in applied research design, on economic shocks and civil conflict, war and inheritance taxation, forest conservation in Mexico, and predicting workplace injury risk.
 
-### [Mastering ’Metrics in R](https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/tree/main/mastering-metrics)
+### [Mastering ’Metrics in R](https://github.com/HekmatAboukhater/aqrd-quantitative-portfolio/tree/main/mastering-metrics)
 
 R · Five essays
 
@@ -340,23 +340,23 @@ I worked through the first five chapters using data on jobs, housing, cigarettes
 
 Five chapter write-ups
 
-- [Did job training raise later earnings?](https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/blob/main/mastering-metrics/01-randomized-trials.md)
+- [Did job training raise later earnings?](https://github.com/HekmatAboukhater/aqrd-quantitative-portfolio/blob/main/mastering-metrics/01-randomized-trials.md)
 
   I used a job-training experiment to compare earnings by assignment and show how randomization changes what we can infer.
 
-- [How much more did homes with central air sell for?](https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/blob/main/mastering-metrics/02-regression.md)
+- [How much more did homes with central air sell for?](https://github.com/HekmatAboukhater/aqrd-quantitative-portfolio/blob/main/mastering-metrics/02-regression.md)
 
   I compared home prices with and without air conditioning and looked at how the estimate changed after adjusting for other features of the house.
 
-- [What happens to sales when cigarettes cost more?](https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/blob/main/mastering-metrics/03-instrumental-variables.md)
+- [What happens to sales when cigarettes cost more?](https://github.com/HekmatAboukhater/aqrd-quantitative-portfolio/blob/main/mastering-metrics/03-instrumental-variables.md)
 
   I used variation in cigarette taxes to ask how cigarette sales respond to prices and showed how to read the first stage.
 
-- [Does qualifying for cash assistance change political support?](https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/blob/main/mastering-metrics/04-regression-discontinuity.md)
+- [Does qualifying for cash assistance change political support?](https://github.com/HekmatAboukhater/aqrd-quantitative-portfolio/blob/main/mastering-metrics/04-regression-discontinuity.md)
 
   I compared households around the cash-assistance eligibility cutoff and checked how the estimate moved as I widened the window.
 
-- [Did changing a DMV question change donor sign-ups?](https://github.com/WhatTheHekmat/aqrd-quantitative-portfolio/blob/main/mastering-metrics/05-differences-in-differences.md)
+- [Did changing a DMV question change donor sign-ups?](https://github.com/HekmatAboukhater/aqrd-quantitative-portfolio/blob/main/mastering-metrics/05-differences-in-differences.md)
 
   I used organ-donor registration to show what we can learn from changes over time and how much the answer depends on the comparison group.
 
